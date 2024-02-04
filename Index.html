@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <base target="_top">
+    <style>
+      * { --mc: #437f33; font-family: monospace; }
+      body {
+        background: #ccc;
+      }
+      .textbox {
+        background: #fff;
+        border: 1px solid #ddd;
+        border-radius: 4px;
+        font-size: 12pt;
+        outline: none;
+        padding: 1em 1em;
+        width: calc(100% - 2em);
+      }
+      .textbox:focus {
+        border: 1px solid var(--mc);
+      }
+      .textbox:hover {
+        background: #eee;
+      }
+      .button {
+        background: var(--mc);
+        border: none;
+        border-radius: 4px;
+        color: #fff;
+        font-size: 12pt;
+        padding: 1em 2em;
+      }
+      .button:hover {
+        background: #2f7f19;
+        cursor: pointer;
+      }
+      .box {
+        background: #fff;
+        box-shadow: 0 5px 7px #0005;
+        padding: 1em;
+        width: 600px;
+        margin: auto;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      var gAppUrl = "<?= ScriptApp.getService().getUrl() ?>";
+      function go() {
+        window.open(gAppUrl + "?url=" + document.getElementById("urlin").value);
+      }
+    </script>
+    <div class="box">
+      <p>Type your URL then click "Navigate!" ...</p>
+      <p><input id="urlin" class="textbox" type="text" placeholder="URL"/><br/></p>
+      <p><button class="button" onclick="go();">Navigate!</button></p>
+    </div>
+  </body>
+</html>
