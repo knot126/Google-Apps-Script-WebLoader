@@ -100,6 +100,11 @@ function testFixHtml() {
 }
 
 function doGet(e) {
+  if (!("url" in e.parameter)) {
+    let output = HtmlService.createTemplateFromFile( "Index.html" ).evaluate();
+    return output;
+  }
+
   let headers = {};
 
   // If there are headers to send, load them
